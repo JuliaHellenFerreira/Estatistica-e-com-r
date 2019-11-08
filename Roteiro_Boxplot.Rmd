@@ -1,0 +1,95 @@
+---
+title: "Box-plot"
+author: "Julia Hellen Ferreira"
+date: "Estatística é com R"
+output: html_document
+---
+
+## Roteiro 
+
+Sejam bem vindos ao "Estatística é com R"!
+
+No vídeo de hoje, iremos aprender como fazer o **Box-Plot**. (Definição)
+
+*Vamos usar como exemplo a altura, em cm, de uma amostra de 20 pessoas, criaremos um objeto "altura" com esses dados. O comando pra fazer o gráfico é boxplot.*
+
+```{r Exemplo}
+altura <- c(150, 175, 155, 168, 160, 155, 165, 170, 175, 180, 
+            165, 160, 170, 175, 210, 190, 195, 170, 145, 162)
+boxplot(altura)
+```
+
+*Agora, iremos acrescentar informações ao Box-Plot. Para adicionar título ao gráfico, basta usar o comando main e para o eixo y usaremos ylab.*
+
+```{r Box01}
+boxplot(altura, main = "Altura", ylab = "Centímetros")
+```
+
+*Se queremos iniciar e terminar entre os valores máximo e mínimo da amostra mesmo que sejam outliers, o comando range irá fazer isto. Neste caso, faremos range igual a 0. Vejamos:*
+
+```{r Box02}
+boxplot(altura, range = 0)
+```
+
+*Para não exibir o valor discrepante no gráfico, usaremos outline igual a FALSE. Podemos observar  que a escala do eixo y passou para 190 e antes era 210.* (Dúvida) 
+
+```{r Box03}
+boxplot(altura, outline = FALSE)
+```
+
+*Podemos fazer também alterações na estética do nosso Box-Plot. Para colocar cor nas bordas, faremos border igual a blue.*
+
+```{r Box04}
+boxplot(altura, border = "blue")
+```
+
+*Queremos preencher agora com a cor verde dentro da caixa, para isso basta fazer col igual a green.*
+
+```{r Box05}
+boxplot(altura, col = "green")
+```
+
+*Também podemos alterar o sentido o nosso Box-Plot para horizontal, usando horizontal igual a TRUE.*
+
+```{r Box06}
+boxplot(altura, horizontal = TRUE, main = "Altura", xlab = "Centímetros")
+```
+
+*O exemplo irá nos ajuadar a fazer novas modificações no Box-Plot. Os dados contém a  altura, em cm, de uma amostra de 10 pessoas divididas por sexo feminino ou masculino.*
+
+```{r Exemplo02}
+altura_F <- c(155, 160, 165, 160, 180)
+altura_M <- c(165, 175, 170, 180, 205)
+```
+
+*Como temos duas informações, será bem interessante visualizar dois gráficos simultaneamente. Assim, usamos o comando borplot e os dois objetos separados por virgulas.*
+*Para colocar título e nomes aos eixos iremos usar a função tible.*
+
+```{r Box07}
+boxplot(altura_F, altura_M)
+title("Boxplot para altura segundo o sexo", xlab = "Sexo", ylab = "Altura (cm)")
+```
+
+*Para renomear os grupos*
+
+```{r Box09}
+boxplot(altura_F, altura_M, main = "Boxplot para altura segundo o sexo",
+        xlab = "Sexo", ylab = "Altura (cm)",
+        names = c("Feminino", "Masculino"))
+```
+
+*Para estreitar a largura da caixa*
+
+```{r Box10}
+boxplot(altura_F, altura_M, boxwex = 0.2)
+boxplot(altura_F, altura_M, boxwex = 0.7)
+```
+
+*Para modificar os tamanhos das linhas limites*
+
+```{r Box11}
+boxplot(altura_F, altura_M, staplewex = 0.2)
+boxplot(altura_F, altura_M, staplewex = 0.6)
+```
+
+**Este vídeo é da série sobre Visualizacão de Dados utilizando comandos do R Básico. Para produção do vídeo usamos o livro "Estatística Básica" dos autores Bussab e Morettin. Se você ainda não é inscrito do canal, se inscreva. Não esqueça de curtir, comentar e compartilhar o vídeo. Até a próxima!**
