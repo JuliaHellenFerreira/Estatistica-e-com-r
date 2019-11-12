@@ -83,7 +83,7 @@ hist(Vendas, main = "Histograma de Vendas", xlab = "Vendas em 2018", ylab = "Fre
 hist(Vendas, breaks = 3)
 ```
 
-*Podemos utilizar o diagrama de Ramos e Folhas para conhecer a forma da distribuição da variável como fizemos no Histograma. A vantagem deste diagrama em relação ao Histograma é que dificilmente perdemos informações sobre os dados em si. Para  fazer o Ramos e Folhas usamos o comandoo stem()*
+*Podemos utilizar o diagrama de Ramos e Folhas para conhecer a forma da distribuição da variável como fizemos no Histograma. A vantagem deste diagrama em relação ao Histograma é que dificilmente perdemos informações sobre os dados em si. Para  fazer o Ramos e Folhas usamos o comando stem()*
 
 ```{r Hist12}
 stem(Vendas)
