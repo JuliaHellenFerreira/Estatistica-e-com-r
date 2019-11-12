@@ -1,0 +1,113 @@
+---
+title: "Grafico de barras ( Formatação )"
+author: "Julia Ferreira"
+date: "Estatística é com R"
+output: html_document
+---
+
+## Roteiro
+
+Sejam bem vindos ao "Estatística é com R"! 
+
+No vídeo de hoje iremos aprender a formartar o **Grafico de Barras**. As formatações que iremos fazer são: mudar as cores ou retirar as bordas das barras, nomear os eixos, colocar gráficos lado a lado, fazer o gráfico de barras com duas variáveis e colocar dois gráficos em um plot.
+
+*Iremos usar dados fictítios para a criação do gráfico de barras. As informações que vamos visualizar são os números de entrevistados do sexo feminino e masculino do RJ de uma determianda pesquisa.*
+
+```{r Exemplo}
+x <- c("Feminino", "Masculino")
+RJ <- c(3500, 1990)
+```
+
+*A primeira alteração que vamos fazer é mudar a cor das barras para verde. Para isso, faremos col igual green. Não se esqueça que as cores devem ser em inglês e entre aspas.*
+
+```{r Bar01}
+barplot(RJ, names.arg = x, main = "Sexo dos entrevistados do RJ", xlab = "Sexo", 
+        ylab = "Quantidade de entrevistados", sub = "Dados fictícios", col = "green")
+```
+
+*Podemos também fazer a alteração usando números que correspondem as cores que queremos. Vejamos, para o gráfico a seguir usamos col igual a 2 que corresponde a cor vermelha.*
+
+```{r Bar02}
+barplot(RJ, names.arg = x, main = "Sexo dos entrevistados do RJ", xlab = "Sexo", 
+        ylab = "Quantidade de entrevistados", sub = "Dados fictícios", col = 2)
+```
+
+*Ainda é possível fazer o gráfico com as brras de cores diferentes. Basta fazer col igual e as cores. É importante usar o c de concatenar para atribuir as cores.*
+
+```{r Bar03}
+barplot(RJ, names.arg = x, main = "Sexo dos entrevistados do RJ", xlab = "Sexo", 
+        ylab = "Quantidade de entrevistados", sub = "Dados fictícios", col = c(10, 20))
+```
+
+*Utilizando o sistema de cores RGB podemos criar uma nova cor. Para isso, devemos combinar valores entre 0 e 1 numa sequência tripla da seguinte forma: col igual rgb() e três valores de 0 a 1.*
+
+```{r Bar04}
+barplot(RJ, names.arg = x, main = "Sexo dos entrevistados do RJ", xlab = "Sexo", 
+        ylab = "Quantidade de entrevistados", sub = "Dados fictícios",
+        col = rgb(0.8, 0.7, 0.2))
+```
+
+*Também é possível usar o mesmo comando para atribuir cores a outras barras do mesmo gráfico. Vamos fazer col igual c, parenteses, rgb, os valores, parenteses, virgula, rgb e os valores.*
+
+```{r Bar05}
+barplot(RJ, names.arg = x, main = "Sexo dos entrevistados do RJ", xlab = "Sexo", 
+        ylab = "Quantidade de entrevistados", sub = "Dados fictícios",
+        col = c(rgb(0.9, 0, 0.3), rgb(0, 0.9, 0.3)))
+```
+
+*No exemplo a seguir queremos retirar as linhas das bordas da barra. Usaremos o argumento border igual a NA. Vejamos como ficou:*
+
+```{r Bar06}
+barplot(RJ, names.arg = x, main = "Sexo dos entrevistados do RJ", xlab = "Sexo", 
+        ylab = "Quantidade de entrevistados", sub = "Dados fictícios", border = NA)
+```
+
+*Neste exemplo vamos criar os objetos x, RJ, SP e Y. Assim teremos uma matriz com os dados para fazer um gráfico de barras com duas variáveis.*
+
+```{r Bar07}
+x <- c("Feminino", "Masculino")
+RJ <- c(3500, 1990)
+SP <- c(2000, 3455)
+Y <- matrix(c(RJ, SP), nrow = 2, ncol = 2, 
+            dimnames = list(x, c("Rio de Janeiro", "São Paulo")))
+Y
+```
+
+*Com os dados basta colocar os argumentos para criar o gráfico.*
+
+```{r Bar08}
+barplot(Y, main = "Sexo e estado dos entrevistados", ylab = "Quantidade de entrevistados")
+```
+
+*Agora, vamos aprender a colocar os gráficos lado a lado. O argumento que usaremos é o beside igual a T.*
+
+```{r Bar09}
+barplot(Y, main = "Sexo e estado dos entrevistados", ylab = "Quantidade de entrevistados", 
+        beside = T)
+```
+
+*Vamos adicionar legenda ao nossa gráfico através do argumento lengend.text e usar as o nome das linhas da variável Y com rownames(Y)*
+
+```{r Bar10}
+barplot(Y, main = "Sexo e estado dos entrevistados", ylab = "Quantidade de entrevistados", 
+        beside = T, legend.text = rownames(Y), sub = "Dados fictícios")
+```
+
+*Por fim, vamos mudar os limites dos eixos. Primiero vamos começar pelo eixo Y. Faremos, ylim igual a , parenteses, 0, 6000.*
+
+```{r Bar11}
+barplot(Y, main = "Sexo e estado dos entrevistados", xlab = "Sexo", 
+        ylab = "Quantidade de entrevistados", beside = T, legend.text = rownames(Y),
+        sub = "Dados fictícios", ylim = c(0, 6000))
+```
+
+*No eixo X, faremos o mesmo processo mas com o argumento xlim. Podemos como ficou bem melhor para visualizar.*
+
+```{r Bar12}
+barplot(Y, main = "Sexo e estado dos entrevistados", xlab = "Sexo", 
+        ylab = "Quantidade de entrevistados", beside = T, legend.text = rownames(Y),
+        sub = "Dados fictícios", xlim = c(0, 10))
+```
+
+
+*Este vídeo é da série sobre Visualizacão de Dados utilizando comandos do R Básico. Não esqueça de curtir, comentar e compartilhar o vídeo. Até a próxima!*
