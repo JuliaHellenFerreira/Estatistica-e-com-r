@@ -5,8 +5,6 @@ date: "Estatística é com R"
 output: html_document
 ---
 
-knitr::opts_chunk$set(fig.width=12, fig.height=8)
-
 ## Roteiro 
 
 Sejam bem vindos ao "Estatística é com R"!
