@@ -5,10 +5,6 @@ date: "Estatística é com R"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ## Roteiro
 
 Sejam bem vindos ao "Estatística é com R"! 
@@ -35,14 +31,12 @@ hist(Vendas)
 hist(Vendas, freq = FALSE)
 ```
 
-*Também é possível alterar a estética do histograma. Vamos acrescentar linhas de sombreamento no nosso gráfico. Para isso, basta usar o comando density = 40.*
+*Também é possível alterar a estética do histograma. Vamos acrescentar linhas de sombreamento no nosso gráfico. Para isso, basta usar o argumento density = 40.*
 
 ````{r Hist03}
 hist(Vendas, density = 40)
 ```
-
-*Para mudar a angulação das linhas de sombreamento, vamos usar o comando angle que irá alterar. Neste exemplo, vamos colocar angle igual a 50.*
-
+*Para mudar a angulação das linhas de sombreamento, vamos usar o argumento angle que irá alterar. Neste exemplo, vamos colocar angle igual a 50.*
 ```{r Hist04}
 hist(Vendas, density = 1, angle = 50)
 ```
@@ -53,7 +47,7 @@ hist(Vendas, density = 1, angle = 50)
 hist(Vendas, density = 1, angle = 70)
 ```
 
-*Podemos acrescentar cores as barras do nosso histograma através do comando col.*
+*Podemos acrescentar cores as barras do nosso histograma através do argumento col.*
 
 ```{r Hist06}
 hist(Vendas, col = "pink")
@@ -71,7 +65,7 @@ hist(Vendas, col = c("blue", "green", "pink", "purple", "red", "orange"))
 hist(Vendas, border = c("blue", "green", "pink", "purple", "red", "orange"))
 ```
 
-*Se você quiser retirar as bordas mas manter as cores das barras, basta que no comando border coloque igual a False.*
+*Se você quiser retirar as bordas mas manter as cores das barras, basta que no argumento border coloque igual a False.*
 
 ```{r Hist09}
 hist(Vendas, col = c("blue", "green", "pink", "purple", "red", "orange"), border = FALSE)
