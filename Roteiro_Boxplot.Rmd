@@ -5,11 +5,14 @@ date: "Estatística é com R"
 output: html_document
 ---
 
+knitr::opts_chunk$set(fig.width=12, fig.height=8)
+
 ## Roteiro 
 
 Sejam bem vindos ao "Estatística é com R"!
 
-No vídeo de hoje, iremos aprender como fazer o **Box-Plot**. (Definição)
+No vídeo de hoje, iremos aprender como fazer o **Box-Plot**. O gráfico irá apresentar uma noção da posição, dispersão, assimetria, caudas e dados discrepantes. O Box plot é formado por um ou mais retângulos, no qual estão representados a mediana e os quartis.
+q 
 
 *Vamos usar como exemplo a altura, em cm, de uma amostra de 20 pessoas, criaremos um objeto "altura" com esses dados. O comando pra fazer o gráfico é boxplot.*
 
@@ -19,13 +22,13 @@ altura <- c(150, 175, 155, 168, 160, 155, 165, 170, 175, 180,
 boxplot(altura)
 ```
 
-*Agora, iremos acrescentar informações ao Box-Plot. Para adicionar título ao gráfico, basta usar o comando main e para o eixo y usaremos ylab.*
+*Agora, iremos acrescentar informações ao Box-Plot. Para adicionar título ao gráfico, basta usar o argumento main e para o eixo y usaremos ylab.*
 
 ```{r Box01}
 boxplot(altura, main = "Altura", ylab = "Centímetros")
 ```
 
-*Se queremos iniciar e terminar entre os valores máximo e mínimo da amostra mesmo que sejam outliers, o comando range irá fazer isto. Neste caso, faremos range igual a 0. Vejamos:*
+*Se queremos iniciar e terminar entre os valores máximo e mínimo da amostra mesmo que sejam outliers, o argumento range irá fazer isto. Neste caso, faremos range igual a 0. Vejamos:*
 
 ```{r Box02}
 boxplot(altura, range = 0)
@@ -70,7 +73,7 @@ boxplot(altura_F, altura_M)
 title("Boxplot para altura segundo o sexo", xlab = "Sexo", ylab = "Altura (cm)")
 ```
 
-*Para renomear os grupos*
+*Outra modificação interessante que podemos fazer é renomear os grupos. Vamos fazer names igual a contactenação Feminino, Masculino.*
 
 ```{r Box09}
 boxplot(altura_F, altura_M, main = "Boxplot para altura segundo o sexo",
@@ -78,14 +81,14 @@ boxplot(altura_F, altura_M, main = "Boxplot para altura segundo o sexo",
         names = c("Feminino", "Masculino"))
 ```
 
-*Para estreitar a largura da caixa*
+*Se queremos estreitar a largura da caixa, usaremos boxwex. Vejamos os exemplos a seguir com boxwex igual a 0.2 e depois com 0.7.*
 
 ```{r Box10}
 boxplot(altura_F, altura_M, boxwex = 0.2)
 boxplot(altura_F, altura_M, boxwex = 0.7)
 ```
 
-*Para modificar os tamanhos das linhas limites*
+*Por fim, para modificar os tamanhos das linhas limites o argumento usado será staplewex.*
 
 ```{r Box11}
 boxplot(altura_F, altura_M, staplewex = 0.2)
